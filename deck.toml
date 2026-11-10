@@ -1,0 +1,18 @@
+[package]
+name = "@deckyard/sealbox"
+version = "0.1.0"
+description = "One-call encryption formats on top of crypto: sealed boxes, encrypt-then-MAC, Fernet"
+license = "LGPL-3.0-only"
+authors = ["mplx <mplx@jennifer-lang.dev>"]
+# Pure computation: no network, programs or databases.
+capabilities = []
+keywords = ["crypto", "encryption", "aes-gcm", "hmac", "fernet", "sealed-box"]
+
+[package.urls]
+deck = "https://raw.githubusercontent.com/deckyard/deck-sealbox/main/deck.toml"
+homepage = "https://github.com/deckyard/deck-sealbox"
+manual = "https://deckyard.github.io/deck-sealbox/"
+
+[engines]
+jennifer = ">=0.26.0"
+jennifer-tiny = ">=0.26.0"
