@@ -29,13 +29,13 @@ use convert;
 import "@deckyard/sealbox/" as sealbox;
 
 def key as bytes init sealbox.newKey();
-def box as bytes init sealbox.seal(convert.bytesFromString("utf-8", "secret"), $key);
+def box as bytes init sealbox.seal(encoding.encode("utf-8", "secret"), $key);
 def back as bytes init sealbox.open($box, $key);
 ```
 
 ## Requirements
 
-Jennifer 0.26.0 or newer. Pure computation: no network, programs or
+Jennifer 0.27.0 or newer. Pure computation: no network, programs or
 databases, so it runs on `jennifer-tiny` too.
 
 ## Development

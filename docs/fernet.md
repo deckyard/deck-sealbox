@@ -17,7 +17,7 @@ import "@deckyard/sealbox/" as sealbox;
 
 # A Fernet key: 32 random bytes in base64url (Fernet.generate_key() in Python).
 def key as string init encoding.toText("base64-url", crypto.randBytes(32));
-def token as string init sealbox.fernetEncrypt(convert.bytesFromString("utf-8", "session 1234"), $key);
+def token as string init sealbox.fernetEncrypt(encoding.encode("utf-8", "session 1234"), $key);
 def back as bytes init sealbox.fernetDecrypt($token, $key, 300);
 ```
 

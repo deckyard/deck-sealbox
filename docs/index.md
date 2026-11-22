@@ -36,7 +36,7 @@ import "@deckyard/sealbox/" as sealbox;
   that is what an attacker probing the format wants to learn. Misuse, such
   as a key of the wrong length, is also kind `"sealbox"`, with a message
   that says what is wrong.
-- **Runs on** both `jennifer` and `jennifer-tiny`, 0.26.0 or newer, with
+- **Runs on** both `jennifer` and `jennifer-tiny`, 0.27.0 or newer, with
   no capabilities: it is pure computation over `crypto`, `hash` and
   `encoding`.
 

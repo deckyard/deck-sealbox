@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: LGPL-3.0-only
 # SPDX-FileCopyrightText: Copyright (C) 2026 mplx <mplx@jennifer-lang.dev>
-# pragma-jennifer-version: >=0.26.0
+# pragma-jennifer-version: >=0.27.0
 
 /**
  * White-box tests for sealbox: jennifer test src/sealbox_test.j
@@ -33,7 +33,7 @@ func hex(s as string) {
 }
 
 func text(s as string) {
-    return convert.bytesFromString("utf-8", $s);
+    return encoding.encode("utf-8", $s);
 }
 
 func flip(b as bytes, at as int) {

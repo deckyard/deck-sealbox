@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: LGPL-3.0-only
 # SPDX-FileCopyrightText: Copyright (C) 2026 mplx <mplx@jennifer-lang.dev>
-# pragma-jennifer-version: >=0.26.0
+# pragma-jennifer-version: >=0.27.0
 
 /**
  * One-call encryption formats on top of the `crypto` library. `crypto` keeps
@@ -134,7 +134,7 @@ export func newKey() {
  * @throws {Error} kind "sealbox" when the key is not 32 bytes
  * @example
  *   def key as bytes init sealbox.newKey();
- *   def box as bytes init sealbox.seal(convert.bytesFromString("utf-8", "hi"), $key);
+ *   def box as bytes init sealbox.seal(encoding.encode("utf-8", "hi"), $key);
  *   def back as bytes init sealbox.open($box, $key);
  */
 export func seal(plaintext as bytes, key as bytes) {

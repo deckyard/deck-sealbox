@@ -13,7 +13,7 @@ use convert;
 import "@deckyard/sealbox/" as sealbox;
 
 def key as bytes init sealbox.newKey();
-def box as bytes init sealbox.seal(convert.bytesFromString("utf-8", "the launch code"), $key);
+def box as bytes init sealbox.seal(encoding.encode("utf-8", "the launch code"), $key);
 def back as bytes init sealbox.open($box, $key);
 ```
 
@@ -28,8 +28,8 @@ but must not change, such as a record id or a header, to the box.
 box moved to another record fails.
 
 ```jennifer
-def box as bytes init sealbox.sealWith($row, $key, convert.bytesFromString("utf-8", "record 42"));
-def back as bytes init sealbox.openWith($box, $key, convert.bytesFromString("utf-8", "record 42"));
+def box as bytes init sealbox.sealWith($row, $key, encoding.encode("utf-8", "record 42"));
+def back as bytes init sealbox.openWith($box, $key, encoding.encode("utf-8", "record 42"));
 ```
 
 ## How many boxes per key

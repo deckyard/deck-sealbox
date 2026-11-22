@@ -16,7 +16,7 @@ import "@deckyard/sealbox/" as sealbox;
 
 def encKey as bytes init crypto.randBytes(32);
 def macKey as bytes init crypto.randBytes(32);
-def box as sealbox.CbcHmac init sealbox.cbcHmacSeal(convert.bytesFromString("utf-8", "payroll.csv"), $encKey, $macKey);
+def box as sealbox.CbcHmac init sealbox.cbcHmacSeal(encoding.encode("utf-8", "payroll.csv"), $encKey, $macKey);
 def back as bytes init sealbox.cbcHmacOpen($box, $encKey, $macKey);
 ```
 
