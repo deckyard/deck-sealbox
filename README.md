@@ -35,7 +35,7 @@ def back as bytes init sealbox.open($box, $key);
 
 ## Requirements
 
-Jennifer 0.27.0 or newer. Pure computation: no network, programs or
+Jennifer 0.28.0 or newer. Pure computation: no network, programs or
 databases, so it runs on `jennifer-tiny` too.
 
 ## Development

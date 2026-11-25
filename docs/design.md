@@ -108,7 +108,7 @@ round trips with Python's `cryptography` at test time.
 - `jennifer`'s M28.40 (`crypto`: one function per operation, block modes),
   for `crypto.encrypt` with explicit parameters and `crypto.blockEncrypt` /
   `blockDecrypt`; first released in 0.26.0.
-- Floor `>=0.27.0`: the tests and examples use the UTF-8 codec of
+- Floor `>=0.28.0` (the calls 0.29.0 removes are replaced by their 0.28.0 forms): the tests and examples use the UTF-8 codec of
   `encoding.encode`, new in 0.27.0.
 - `jennifer`'s M28.43 (canonical-only base32 / base64 decoding), found while
   reviewing this deck; the deck's own re-encoding check stays as a guard.
