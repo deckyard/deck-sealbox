@@ -100,15 +100,6 @@ func requireMacKey(macKey as bytes) {
     }
 }
 
-# be64 renders a non-negative int as 8 big-endian bytes.
-func be64(n as int) {
-    def out as bytes init binary.make(0);
-    for (def i in 0..8) {
-        $out[] = ($n >> (56 - 8 * $i)) & 255;
-    }
-    return $out;
-}
-
 func nowSeconds() {
     return time.unixMilliseconds(time.now()) // 1000;
 }
@@ -300,7 +291,8 @@ func fernetKeys(key as string) {
 func fernetEncryptAt(plaintext as bytes, key as string, now as int, iv as bytes) {
     def keys as list of bytes init fernetKeys($key);
     def ct as bytes init crypto.blockEncrypt("aes-cbc-pkcs7", $plaintext, $keys[1], $iv);
-    def head as bytes init binary.join([binary.make(1, FERNET_VERSION), be64($now), $iv, $ct]);
+    def stamp as bytes init binary.fromUint("be", $now, 8);
+    def head as bytes init binary.join([binary.make(1, FERNET_VERSION), $stamp, $iv, $ct]);
     def mac as bytes init hash.hmac("sha256", $head, $keys[0]);
     return encoding.toText("base64-url", binary.concat($head, $mac));
 }

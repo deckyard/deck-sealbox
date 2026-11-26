@@ -298,9 +298,16 @@ func testFernetArgumentErrors() {
     testing.assertThrows("fernetNegativeTtl", "sealbox");
 }
 
-func testBe64() {
-    testing.assertEqual(be64(499162800), hex("000000001dc09eb0"));
-    testing.assertEqual(be64(0), hex("0000000000000000"));
+# stampOf is the 8-byte big-endian timestamp of a token made at now.
+func stampOf(now as int) {
+    def token as string init fernetEncryptAt(text(""), FERNET_SECRET, $now, binary.make(16));
+    return encoding.fromText("base64-url", $token)[1..9];
+}
+
+func testTokenTimestampBytes() {
+    testing.assertEqual(stampOf(499162800), hex("000000001dc09eb0"));
+    testing.assertEqual(stampOf(0), hex("0000000000000000"));
+    testing.assertEqual(stampOf(0x7fffffffffffffff), hex("7fffffffffffffff"));
 }
 
 # forgeToken signs a token under the spec's key with any 8 timestamp bytes, so

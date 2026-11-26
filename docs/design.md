@@ -112,4 +112,5 @@ round trips with Python's `cryptography` at test time.
   `encoding.encode`, new in 0.27.0.
 - `jennifer`'s M28.43 (canonical-only base32 / base64 decoding), found while
   reviewing this deck; the deck's own re-encoding check stays as a guard.
-- `binary.readUint` for the Fernet timestamp, `hash.hmac` and `hash.equal`.
+- `binary.fromUint` / `binary.readUint` for the Fernet timestamp (M29.54,
+  0.28.0), `hash.hmac` and `hash.equal`.
