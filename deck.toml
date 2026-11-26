@@ -1,6 +1,6 @@
 [package]
 name = "@deckyard/sealbox"
-version = "0.2.0"
+version = "0.2.1"
 description = "One-call encryption formats on top of crypto: sealed boxes, encrypt-then-MAC, Fernet"
 license = "LGPL-3.0-only"
 authors = ["mplx <mplx@jennifer-lang.dev>"]
